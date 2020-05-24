@@ -5,6 +5,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "Home" */ '../pages/Home.vue'),
 	},
 	{
+		path: '/play',
+		name: 'Game',
+		component: () => import(/* webpackChunkName: "Game" */ '../pages/Game.vue'),
+	},
+	{
 		path: '*',
 		name: 'notFound',
 		redirect: '/',
