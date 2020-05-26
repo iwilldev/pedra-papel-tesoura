@@ -27,9 +27,11 @@
 <script>
 	/* eslint-disable global-require */
 	/* eslint-disable import/no-dynamic-require */
+	import { mapMutations } from 'vuex';
 	import VueTypes from 'vue-types';
 
-	import { randomToken } from '@/utils';
+	import { SET_SCORE } from '@/store/modules/score/mutations';
+	import { randomToken, getResult } from '@/utils';
 
 	import Token from '@/components/Token/Token.vue';
 
@@ -55,14 +57,27 @@
 				return require(`@/assets/icon-${this.computerToken}.svg`);
 			},
 			gameResult() {
-				return 'YOU WIN';
+				const results = {
+					0: 'DRAW',
+					1: 'YOU WIN',
+					'-1': 'YOU LOSE',
+				};
+
+				return results[this.result];
 			},
 		},
 		created() {
 			this.computerToken = randomToken();
 			setTimeout(() => {
 				this.gameIsFinished = true;
-			}, 500);
+				this.result = getResult(this.playerToken, this.computerToken);
+				this.updateScore(this.result);
+			}, 750);
+		},
+		methods: {
+			...mapMutations('Score', {
+				updateScore: SET_SCORE,
+			}),
 		},
 	};
 </script>
@@ -173,7 +188,7 @@
 
 		.loading {
 			text-align: center;
-			font-size: rfs(1.25rem);
+			font-size: rfs(1.5rem);
 			color: $white;
 			font-weight: bold;
 		}
