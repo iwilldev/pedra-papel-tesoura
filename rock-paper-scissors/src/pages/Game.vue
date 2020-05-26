@@ -1,10 +1,18 @@
 <template>
 	<div class="game">
-		<div class="tokens">
-			<Token v-for="tokenInfo in tokens" :key="tokenInfo.name" v-bind="tokenInfo" />
-		</div>
-		<RulesButton />
-		<BackButton />
+		<template v-if="!gameStart">
+			<div class="tokens">
+				<Token
+					v-for="tokenInfo in tokens"
+					:key="tokenInfo.name"
+					v-bind="tokenInfo"
+					@click="startGame($event)"
+				/>
+			</div>
+			<RulesButton />
+			<BackButton />
+		</template>
+		<Result v-else :player-token="playerToken" @reset="gameStart = false" />
 	</div>
 </template>
 
@@ -13,6 +21,17 @@
 	import Token from '@/components/Token/Token.vue';
 	import RulesButton from '@/components/Buttons/Rules.vue';
 	import BackButton from '@/components/Buttons/Back.vue';
+	import Result from '@/components/Result/Result.vue';
+
+	import { TOKENS_LIST } from '@/utils';
+
+	const {
+		ROCK,
+		PAPER,
+		SCISSORS,
+		LIZARD,
+		SPOCK,
+	} = TOKENS_LIST;
 
 	export default {
 		name: 'Game',
@@ -20,17 +39,26 @@
 			Token,
 			RulesButton,
 			BackButton,
+			Result,
 		},
 		data() {
 			return {
 				tokens: [
-					{ name: 'rock', src: require('@/assets/icon-rock.svg'), tabindex: 3 },
-					{ name: 'paper', src: require('@/assets/icon-paper.svg'), tabindex: 2 },
-					{ name: 'scissors', src: require('@/assets/icon-scissors.svg'), tabindex: 1 },
-					{ name: 'lizard', src: require('@/assets/icon-lizard.svg'), tabindex: 4 },
-					{ name: 'spock', src: require('@/assets/icon-spock.svg'), tabindex: 5 },
+					{ name: ROCK, src: require('@/assets/icon-rock.svg'), tabindex: 3 },
+					{ name: PAPER, src: require('@/assets/icon-paper.svg'), tabindex: 2 },
+					{ name: SCISSORS, src: require('@/assets/icon-scissors.svg'), tabindex: 1 },
+					{ name: LIZARD, src: require('@/assets/icon-lizard.svg'), tabindex: 4 },
+					{ name: SPOCK, src: require('@/assets/icon-spock.svg'), tabindex: 5 },
 				],
+				playerToken: '',
+				gameStart: false,
 			};
+		},
+		methods: {
+			startGame(token) {
+				this.playerToken = token;
+				this.gameStart = true;
+			},
 		},
 	};
 </script>
@@ -41,6 +69,7 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: rfs(-50px);
+		width: 100%;
 
 		.tokens {
 			display: grid;

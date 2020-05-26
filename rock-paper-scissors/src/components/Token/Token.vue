@@ -1,5 +1,10 @@
 <template>
-	<button class="token" :class="name" :tabindex="tabindex">
+	<button
+		class="token"
+		:class="name"
+		:tabindex="tabindex"
+		@click="$emit('click', name)"
+	>
 		<img :src="src" :alt="name" class="token--image">
 	</button>
 </template>
