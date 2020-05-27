@@ -1,10 +1,5 @@
 <template>
-	<button
-		class="token"
-		:class="name"
-		:tabindex="tabindex"
-		@click="$emit('click', name)"
-	>
+	<button class="token" :class="name" @click="$emit('click', name)">
 		<img :src="src" :alt="name" class="token--image">
 	</button>
 </template>
@@ -17,7 +12,6 @@
 		props: {
 			name: VueTypes.string.isRequired,
 			src: VueTypes.string.isRequired,
-			tabindex: VueTypes.integer.isRequired,
 		},
 	};
 </script>
@@ -72,7 +66,7 @@
 			height: 100px;
 			border-radius: 50%;
 			z-index: 1;
-			box-shadow: inset 0px 6px 0px 0px darken($white, 15);
+			box-shadow: inset 0 6px 0 0 darken($white, 15);
 
 			@media (max-width: 430px) {
 				width: 65px;

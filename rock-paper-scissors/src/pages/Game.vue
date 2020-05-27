@@ -18,6 +18,7 @@
 
 <script>
 	/* eslint-disable global-require */
+
 	import Token from '@/components/Token/Token.vue';
 	import RulesButton from '@/components/Buttons/Rules.vue';
 	import BackButton from '@/components/Buttons/Back.vue';
@@ -44,11 +45,11 @@
 		data() {
 			return {
 				tokens: [
-					{ name: ROCK, src: require('@/assets/icon-rock.svg'), tabindex: 3 },
-					{ name: PAPER, src: require('@/assets/icon-paper.svg'), tabindex: 2 },
-					{ name: SCISSORS, src: require('@/assets/icon-scissors.svg'), tabindex: 1 },
-					{ name: LIZARD, src: require('@/assets/icon-lizard.svg'), tabindex: 4 },
-					{ name: SPOCK, src: require('@/assets/icon-spock.svg'), tabindex: 5 },
+					{ name: SCISSORS, src: require('@/assets/icon-scissors.svg') },
+					{ name: PAPER, src: require('@/assets/icon-paper.svg') },
+					{ name: ROCK, src: require('@/assets/icon-rock.svg') },
+					{ name: LIZARD, src: require('@/assets/icon-lizard.svg') },
+					{ name: SPOCK, src: require('@/assets/icon-spock.svg') },
 				],
 				playerToken: '',
 				gameStart: false,

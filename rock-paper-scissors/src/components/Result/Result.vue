@@ -4,11 +4,11 @@
 			<div class="tokens">
 				<div class="player">
 					<h2>YOU PICKED</h2>
-					<Token :name="playerToken" :tabindex="-1" :src="playerSrc" />
+					<Token :name="playerToken" :src="playerSrc" />
 				</div>
 				<div class="player">
 					<h2>HOUSE PICKED</h2>
-					<Token :name="computerToken" :tabindex="-1" :src="computerSrc" />
+					<Token :name="computerToken" :src="computerSrc" />
 				</div>
 			</div>
 			<h2 class="game-result">
@@ -27,9 +27,12 @@
 <script>
 	/* eslint-disable global-require */
 	/* eslint-disable import/no-dynamic-require */
-	import VueTypes from 'vue-types';
 
-	import { randomToken } from '@/utils';
+	import VueTypes from 'vue-types';
+	import { mapMutations } from 'vuex';
+
+	import { SET_SCORE } from '@/store/modules/score/mutations';
+	import { randomToken, getResult } from '@/utils';
 
 	import Token from '@/components/Token/Token.vue';
 
@@ -45,6 +48,7 @@
 			return {
 				gameIsFinished: false,
 				computerToken: '',
+				result: 0,
 			};
 		},
 		computed: {
@@ -55,14 +59,27 @@
 				return require(`@/assets/icon-${this.computerToken}.svg`);
 			},
 			gameResult() {
-				return 'YOU WIN';
+				const results = {
+					0: 'DRAW',
+					1: 'YOU WIN',
+					'-1': 'YOU LOSE',
+				};
+
+				return results[this.result];
 			},
 		},
 		created() {
 			this.computerToken = randomToken();
 			setTimeout(() => {
 				this.gameIsFinished = true;
-			}, 500);
+				this.result = getResult(this.playerToken, this.computerToken);
+				this.updateScore(this.result);
+			}, 750);
+		},
+		methods: {
+			...mapMutations('Score', {
+				updateScore: SET_SCORE,
+			}),
 		},
 	};
 </script>
@@ -167,13 +184,13 @@
 				outline: none;
 				background-color: transparent;
 				color: $white;
-				border: 2px solid $white;
+				border-color: $white;
 			}
 		}
 
 		.loading {
 			text-align: center;
-			font-size: rfs(1.25rem);
+			font-size: rfs(1.5rem);
 			color: $white;
 			font-weight: bold;
 		}
