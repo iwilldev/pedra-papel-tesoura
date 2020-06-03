@@ -1,5 +1,8 @@
 # rock-paper-scissors
 
+## Project Demo
+http://rpsls-frontendmentor.netlify.app/
+
 ## Project setup
 ```
 yarn install
