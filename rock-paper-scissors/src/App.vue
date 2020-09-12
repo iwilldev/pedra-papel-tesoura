@@ -5,8 +5,10 @@
 		@mousemove="redefinePositions" 
 		@mouseleave="resetPositions"
 	>
-		<Header />	
-		<RouterView />
+		<Header />
+		<div class="view">
+			<RouterView />
+		</div>
 	</div>
 </template>
 
@@ -48,7 +50,17 @@
 	@import './styles/reset';
 
 	#app {
+		display: flex;
+		flex-direction: column;
 		height: 100%;
 		font-family: 'Barlow Semi Condensed', Helvetica, Arial, sans-serif;
+	}
+
+	.view {
+		width: 100%;
+		height: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 30px;
 	}
 </style>
