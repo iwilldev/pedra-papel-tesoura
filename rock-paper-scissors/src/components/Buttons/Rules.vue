@@ -26,6 +26,7 @@
 		margin-top: rfs(50px);
 		transition: background .3s linear, color .3s linear;
 
+
 		&:hover,
 		&:focus {
 			outline: none;
@@ -34,3 +35,4 @@
 		}
 	}
 </style>
+

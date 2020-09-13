@@ -1,3 +1,4 @@
+
 export const TOKENS_LIST = [
     'tesoura',
     'papel',

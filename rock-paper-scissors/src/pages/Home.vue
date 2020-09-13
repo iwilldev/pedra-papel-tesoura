@@ -8,12 +8,14 @@
 </template>
 
 <script>
+
 	import RulesButton from '@/components/Buttons/Rules';
+	import RulesButton from '@/components/Buttons/Rules.vue';
 	export default {
 		name: 'Home',
 		components: {
 			RulesButton,
-		}
+		},
 	};
 </script>
 
@@ -41,6 +43,7 @@
 			transform: scale(1.25);
 			letter-spacing: 5px;
 			text-decoration: underline;
+
 		}
 	}
 </style>
