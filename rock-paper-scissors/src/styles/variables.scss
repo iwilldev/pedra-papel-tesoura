@@ -21,20 +21,20 @@ $spock-from: hsl(189, 59%, 53%);
 $spock-to: hsl(189, 58%, 57%);
 
 $dark-text: hsl(229, 25%, 31%);
-$score-text: hsl(229, 64%, 46%);
-$header-outline: hsl(217, 16%, 45%);
+$score-text: hsl(285, 64%, 46%);
+$header-outline: hsl(285, 42%, 80%);
 
-$background-from: hsl(214, 47%, 23%);
-$background-to: hsl(237, 49%, 15%);
+$background-from: hsl(287, 62%, 32%);
+$background-to: hsl(288, 84%, 12%);
 
-$token-colors:
-	"rock" $rock-from $rock-to,
-	"paper" $paper-from $paper-to,
-	"scissors" $scissors-from $scissors-to,
-	"lizard" $lizard-from $lizard-to,
-	"spock" $spock-from $spock-to;
+$token-colors: 
+    "pedra" $rock-from $rock-to,
+    "papel" $paper-from $paper-to,
+    "tesoura" $scissors-from $scissors-to,
+    "lagarto" $lizard-from $lizard-to,
+    "spock" $spock-from $spock-to;
 
 :export {
-	bgColorFrom: $background-from;
-	bgColorTo: $background-to;
+    bgColorFrom: $background-from;
+    bgColorTo: $background-to;
 }

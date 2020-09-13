@@ -13,6 +13,7 @@ const routes = [
 		path: '/rules',
 		name: 'Rules',
 		component: () => import(/* webpackChunkName: "Rules" */ '../pages/Rules.vue'),
+
 	},
 	{
 		path: '*',

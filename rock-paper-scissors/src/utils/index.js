@@ -1,42 +1,41 @@
-export const TOKENS_LIST = {
-	ROCK: 'rock',
-	PAPER: 'paper',
-	SCISSORS: 'scissors',
-	LIZARD: 'lizard',
-	SPOCK: 'spock',
-};
+
+export const TOKENS_LIST = [
+    'tesoura',
+    'papel',
+    'pedra',
+    'lagarto',
+    'spock',
+];
 
 export const randomToken = () => {
-	const tokens = Object.values(TOKENS_LIST);
-	const randomIndex = Math.random() * tokens.length;
-	return tokens[Math.floor(randomIndex)];
+    const randomIndex = Math.random() * TOKENS_LIST.length;
+    return TOKENS_LIST[Math.floor(randomIndex)];
 };
 
-const tokenBeat = (player, house) => {
-	const {
-		ROCK,
-		PAPER,
-		SCISSORS,
-		LIZARD,
-		SPOCK,
-	} = TOKENS_LIST;
+const tokenBeats = (player, house) => {
 
-	const beat = {
-		[ROCK]: [LIZARD, SCISSORS],
-		[PAPER]: [ROCK, SPOCK],
-		[SCISSORS]: [PAPER, LIZARD],
-		[LIZARD]: [SPOCK, PAPER],
-		[SPOCK]: [SCISSORS, ROCK],
-	};
+    const beats = {
+        0: [1, 3],
+        1: [2, 4],
+        2: [3, 0],
+        3: [4, 1],
+        4: [0, 2],
+    };
 
-	return beat[player].includes(house);
-};
+    var playerIndex = TOKENS_LIST.indexOf(player);
+    var houseIndex = TOKENS_LIST.indexOf(house);
+
+    console.log(playerIndex);
+    console.log(houseIndex);
+
+    return beats[playerIndex].includes(houseIndex);
+}
 
 export const getResult = (player, house) => {
-	if (player === house) {
-		return 0;
-	}
+    if (player === house) {
+        return 0;
+    }
 
-	const playerBeatsHouse = tokenBeat(player, house);
-	return playerBeatsHouse ? 1 : -1;
+    const playerBeatsHouse = tokenBeats(player, house);
+    return playerBeatsHouse ? 1 : -1;
 };

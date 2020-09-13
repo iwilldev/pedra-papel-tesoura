@@ -1,8 +1,9 @@
 <template>
-	<div
-		id="app"
-		:style="backgroundGradient"
-		@mousemove="redefinePositions"
+
+	<div 
+		id="app" 
+		:style="backgroundGradient" 
+		@mousemove="redefinePositions" 
 		@mouseleave="resetPositions"
 	>
 		<Header />
@@ -33,6 +34,7 @@
 				return {
 					background: `radial-gradient(circle at ${this.gradientX} ${this.gradientY}, ${bgColorFrom}, ${bgColorTo})`,
 				};
+
 			},
 		},
 		methods: {
@@ -43,7 +45,9 @@
 			resetPositions() {
 				this.gradientX = '50%';
 				this.gradientY = '0%';
+
 			},
+
 		},
 	};
 </script>
@@ -68,5 +72,17 @@
 			margin: 0 auto;
 			padding: rfs(30px);
 		}
+	}
+
+	.view {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+		width: 100%;
+		height: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 30px;
 	}
 </style>
