@@ -51,7 +51,7 @@
                 flex-direction: column;
                 line-height: 0.8;
                 color: white;
-                font-size: 2rem;
+                font-size: 1.5rem;
 
                 span + span {
                     margin-top: 5px;

@@ -1,5 +1,5 @@
 <template>
-    <button class="token" :class="name">
+    <button class="token" :class="name" @click="$emit('click', name)">
         <img :src="src" :alt="name" class="token--image">
     </button>
 </template>
@@ -74,22 +74,22 @@
             }
         }
 
-        &.Pedra {
+        &.pedra {
             grid-area: rock;
         }
 
-        &.Tesoura {
+        &.tesoura {
             grid-area: scissors;
         }
 
-        &.Papel {
+        &.papel {
             grid-area: paper;
         }
 
-        &.Lagarto {
+        &.lagarto {
             grid-area: lizard;
         }
-        &.Spock {
+        &.spock {
             grid-area: spock;
         }
     }

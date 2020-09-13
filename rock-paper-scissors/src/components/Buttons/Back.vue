@@ -19,6 +19,7 @@
         text-decoration: none;
         font-size: rfs(1.25rem);
         cursor: pointer;
+        margin-top: 25px;
 
         &:hover,
         &:focus {

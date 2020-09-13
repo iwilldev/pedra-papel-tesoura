@@ -38,7 +38,7 @@
             }
         }
         .image {
-            margin: rfs(30px 0);
+            margin-top: rfs(25px);
         }
     }
 </style>

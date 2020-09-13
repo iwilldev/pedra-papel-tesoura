@@ -26,11 +26,11 @@ $background-from: hsl(287, 62%, 32%);
 $background-to: hsl(288, 84%, 12%);
 
 $token-colors: 
-    "Pedra" $rock-from $rock-to,
-    "Papel" $paper-from $paper-to,
-    "Tesoura" $scissors-from $scissors-to,
-    "Lagarto" $lizard-from $lizard-to,
-    "Spock" $spock-from $spock-to;
+    "pedra" $rock-from $rock-to,
+    "papel" $paper-from $paper-to,
+    "tesoura" $scissors-from $scissors-to,
+    "lagarto" $lizard-from $lizard-to,
+    "spock" $spock-from $spock-to;
 
 :export {
     bgColorFrom: $background-from;

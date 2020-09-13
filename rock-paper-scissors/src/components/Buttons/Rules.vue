@@ -1,5 +1,5 @@
 <template>
-    <button class="rules" @click="$router.back()">
+    <button class="rules" @click="$router.push('/rules')">
         Regras
     </button>
 </template>
@@ -19,6 +19,7 @@
 		border: 1px solid $header-outline;
 		border-radius: 10px;
 		padding: rfs(5px 10px);
+		cursor: pointer;
 		width: 150px;
 		color: white;
 		font-weight: 500;

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import { mapState, mapMutations } from 'vuex';
+    import { mapState } from 'vuex';
     import { SET_SCORE } from '@/store/modules/score/mutations';
     export default {
         name: 'Score',
@@ -21,16 +21,6 @@
                 score: ({ score }) => score,
             })
         },
-        created() {
-            setTimeout(() => {
-                this.setScore(2);
-            }, 1000);
-        },
-        methods: {
-            ...mapMutations('Score', {
-                setScore: SET_SCORE,
-            }),
-        }
     };
 </script>
 
@@ -57,7 +47,7 @@
             }
 
             &--number {
-                font-size: rfs(5rem);
+                font-size: rfs(3rem);
                 color: $dark-text;
             }
         }

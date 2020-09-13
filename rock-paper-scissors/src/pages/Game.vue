@@ -1,10 +1,18 @@
 <template>
     <div class="game">
-        <div class="tokens">
-            <Token v-for="tokenInfo in tokens" :key="tokenInfo.name" v-bind="tokenInfo"/>
-        </div>
-        <RulesButton />
-        <BackButton />
+        <template v-if="!gameStart">
+            <div class="tokens">
+                <Token 
+                    v-for="tokenInfo in tokens" 
+                    :key="tokenInfo.name" 
+                    v-bind="tokenInfo"
+                    @click="startGame($event)"
+                />
+            </div>
+            <RulesButton />
+            <BackButton />
+        </template>
+        <Result v-else :player-token="playerToken" @reset="gameStart = false" />
     </div>
 </template>
 
@@ -12,22 +20,35 @@
     import Token from '@/components/Token/Token.vue';
     import RulesButton from '@/components/Buttons/Rules.vue';
     import BackButton from '@/components/Buttons/Back.vue';
+    import Result from '@/components/Result/Result.vue';
+
+    import { TOKENS_LIST } from '@/utils';
+
     export default {
         name: 'Game',
         components: {
             Token,
             RulesButton,
             BackButton,
+            Result
         },
         data() {
             return {
                 tokens: [
-                    { name: 'Tesoura', src: require('@/assets/icon-scissors.svg') },
-                    { name: 'Papel', src: require('@/assets/icon-paper.svg') },
-                    { name: 'Pedra', src: require('@/assets/icon-rock.svg') },
-                    { name: 'Lagarto', src: require('@/assets/icon-lizard.svg') },
-                    { name: 'Spock', src: require('@/assets/icon-spock.svg') },
-                ]
+                    { name: TOKENS_LIST[0], src: require('@/assets/icon-tesoura.svg') },
+                    { name: TOKENS_LIST[1], src: require('@/assets/icon-papel.svg') },
+                    { name: TOKENS_LIST[2], src: require('@/assets/icon-pedra.svg') },
+                    { name: TOKENS_LIST[3], src: require('@/assets/icon-lagarto.svg') },
+                    { name: TOKENS_LIST[4], src: require('@/assets/icon-spock.svg') },
+                ],
+                playerToken: '',
+                gameStart: false,
+            }
+        },
+        methods: {
+            startGame(token) {
+                this.playerToken = token;
+                this.gameStart = true;
             }
         }
     }
