@@ -25,6 +25,13 @@ $header-outline: hsl(285, 42%, 80%);
 $background-from: hsl(287, 62%, 32%);
 $background-to: hsl(288, 84%, 12%);
 
+$token-colors: 
+    "Pedra" $rock-from $rock-to,
+    "Papel" $paper-from $paper-to,
+    "Tesoura" $scissors-from $scissors-to,
+    "Lagarto" $lizard-from $lizard-to,
+    "Spock" $spock-from $spock-to;
+
 :export {
     bgColorFrom: $background-from;
     bgColorTo: $background-to;

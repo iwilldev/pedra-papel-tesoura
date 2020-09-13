@@ -3,21 +3,26 @@
 		<RouterLink to="/play" class="start">
 			JOGAR
 		</RouterLink>
+		<RulesButton />
 	</div>
 </template>
 
 <script>
+	import RulesButton from '@/components/Buttons/Rules';
 	export default {
 		name: 'Home',
+		components: {
+			RulesButton,
+		}
 	};
 </script>
 
 <style lang="scss" scoped>
 	.home {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		height: 100%;
 	}
 	.start {
 		font-size: rfs(4rem);
