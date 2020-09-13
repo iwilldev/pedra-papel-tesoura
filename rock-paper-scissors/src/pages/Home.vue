@@ -9,7 +9,7 @@
 
 <script>
 
-	import RulesButton from '@/components/Buttons/Rules';
+	
 	import RulesButton from '@/components/Buttons/Rules.vue';
 	export default {
 		name: 'Home',
