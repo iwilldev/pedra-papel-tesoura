@@ -16,7 +16,7 @@ module.exports = {
 			.plugin('html')
 			.tap((args) => {
 				// eslint-disable-next-line no-param-reassign
-				args[0].title = 'Rock, Paper and Scissors';
+				args[0].title = 'Pedra, Papel, Tesoura, Lagarto, Spock';
 				return args;
 			});
 	},
